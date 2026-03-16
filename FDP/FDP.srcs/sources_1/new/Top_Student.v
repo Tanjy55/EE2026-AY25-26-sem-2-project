@@ -16,16 +16,23 @@ module Top_Student (
     input btnC, btnL, btnR, btnD, btnU,
     input [15:0] sw,
     output [7:0] JB,
-    output reg [3:0] an,
-    output reg [6:0] seg,
-    output reg dp
+    output [3:0] JC,
+    output [3:0] an,
+    output [6:0] seg,
+    output dp
 );    
+
+// ------------ OLED WIRES ------------------
 
 wire [15:0] oled_data_start;
 wire [15:0] oled_data_test;
+wire [15:0] oled_data_exploded;
 
+// ------------ GAME STATE VARIABLES ------------------
+reg [1:0] player_health = 2'b11; //player starts at 3 health
 wire [3:0] game_state;
 wire begin_flag;
+wire death_flag;
 
 // ------------ OLED DRIVER INIT ------------------
 reg [3:0] clk_count = 0;    
@@ -37,8 +44,9 @@ wire sample_pixel;
 wire [15:0] pixel_index;
 reg [15:0] oled_data;
 
+
 //6.25MHz clock gen
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if (clk_count == 7) begin                           
         clk_count <= 0;
         clk6p25m <= ~clk6p25m; 
@@ -73,25 +81,45 @@ assign JB[5] = resn;
 assign JB[6] = vccen;
 assign JB[7] = pmoden;
 
-// ------------ GRAPHICS INIT ------------------
+// ------------ MODULES INITIALISATION ------------------
+top_timer timer(clk,           // 100MHz Basys 3 clock
+                begin_flag,
+                an [3:0],     // 4-digit select
+                seg [6:0],    // 7-segment segments
+                dp,           // Decimal point
+                JC [3:0]      // Pmod Header JC (Pins 1-4)
+                );
+                
 start_screen screen1 (clk,
-                           sw[15:0],
-                           btnC, btnL, btnR, btnD, btnU,
-                           pixel_index,
-                           sample_pixel,
-                           oled_data_start,
-                           game_state,
-                           begin_flag);
+                       sw[15:0],
+                       btnC, btnL, btnR, btnD, btnU,
+                       pixel_index,
+                       sample_pixel,
+                       oled_data_start,
+                       game_state,
+                       begin_flag);
 
 test_state_display screen2 (clk, 
                             pixel_index,
                             game_state,
                             oled_data_test);
-
+                            
+exploded_screen screen3 (clk,
+                        pixel_index,
+                        oled_data_exploded);
+                            
+// ------------ OLED MULTIPLEXING ------------------
 always @(*) begin
-        if (begin_flag == 0) oled_data <= oled_data_start;
+        if (player_health == 0) oled_data <= oled_data_exploded;
+        else if (begin_flag == 0) oled_data <= oled_data_start;
         else if (begin_flag == 1) oled_data <= oled_data_test;
         else oled_data <= 16'h0000;
     end
+    
+// ------------ GAME LOGIC ------------------
+always @(clk) begin
+    if (death_flag == 1) player_health = 0;
+    else if (begin_flag == 1 && btnC && death_flag != 1) player_health = player_health - 1; //for testing, btnC not debounced
+end
 
 endmodule

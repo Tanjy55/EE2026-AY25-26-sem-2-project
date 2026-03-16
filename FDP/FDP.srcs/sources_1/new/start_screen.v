@@ -2,7 +2,7 @@
 
 module start_screen(
     input clk, [15:0] sw, btnC, btnL, btnR, btnD, btnU, [15:0] pixel_index, sample_pixel,
-    output reg [15:0] oled_data, reg [2:0] state = 0, reg begin_flag = 0
+    output reg [15:0] oled_data, reg [2:0] game_state = 0, reg begin_flag = 0
     );
     
     wire [6:0] x = pixel_index % 96; // 0 to 95
@@ -24,7 +24,7 @@ module start_screen(
    always @ (posedge clk)
    begin
         if(btnC || btnL || btnR || btnD || btnU) begin_flag <= 1; //currently no debouncing
-        if(begin_flag == 0) state <= state + 1;
+        if(begin_flag == 0) game_state <= game_state + 1;
    end
    
    //start game screen blinking
@@ -207,6 +207,6 @@ module start_screen(
            else if (pixel_index == 4878) oled_data = 16'b0000100010000001;
            else if (pixel_index == 4956) oled_data = 16'b0011100110000111;
            else oled_data = 0;
-   end
+       end
    end 
 endmodule
