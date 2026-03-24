@@ -321,3 +321,12 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
 wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/Jun Yi/Documents/Y2S2/EE2026/Project/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+archive_project {C:/Users/Jun Yi/Downloads/FDP.xpr.zip} -temp_dir {C:/Users/Jun Yi/Documents/Y2S2/EE2026/Project/FDP/.Xil/Vivado-11632-DESKTOP-UA3OGHR} -force -include_local_ip_cache -include_config_settings

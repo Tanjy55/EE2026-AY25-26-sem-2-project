@@ -87,7 +87,8 @@ top_timer timer(clk,           // 100MHz Basys 3 clock
                 an [3:0],     // 4-digit select
                 seg [6:0],    // 7-segment segments
                 dp,           // Decimal point
-                JC [3:0]      // Pmod Header JC (Pins 1-4)
+                JC [3:0],      // Pmod Header JC (Pins 1-4)
+                death_flag
                 );
                 
 start_screen screen1 (clk,
