@@ -115,3 +115,9 @@ Player 2 presses buttons in correct order.
 2) Connect pmod OLED to ports JA and JB, pmod audio jack to port JC (optional for audio), mouse to USB port (for game 1)
 3) Upload bistream Basys 3 board (note, no need to re-generate bitstream)
 4) Enjoy!
+
+# Credits
+
+Credits to pixture2pixel tool @ https://www.comp.nus.edu.sg/~guoyi/project/picture2pixel/.
+
+The converter was used to generate complicated shapes such as dense wording, symbols design in our project.
