@@ -1,4 +1,4 @@
-<img width="470" height="283" alt="image" src="https://github.com/user-attachments/assets/14e3da0a-44f5-4551-a7b5-4ef965a522b5" /><img width="593" height="229" alt="image" src="https://github.com/user-attachments/assets/96d85086-ce21-437e-b1a2-8a721fa7a4ff" /># EE2026-AY25-26-sem-2-project
+# EE2026-AY25-26-sem-2-project
 
 ```
 _____/\\\\\\\\\\\______________/\\\\\___________/\\\\\\\_______________/\\\____        
