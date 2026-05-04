@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Apr 10 18:49:03 2026
+# Process ID: 3116
+# Current directory: C:/Users/Jun Yi/Desktop/project_FDP_final
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12604 C:\Users\Jun Yi\Desktop\project_FDP_final\project_FDP_final.xpr
+# Log file: C:/Users/Jun Yi/Desktop/project_FDP_final/vivado.log
+# Journal file: C:/Users/Jun Yi/Desktop/project_FDP_final\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Jun Yi/Desktop/project_FDP_final/project_FDP_final.xpr}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+archive_project {C:/Users/Jun Yi/Desktop/S6_04_v2.xpr.zip} -temp_dir {C:/Users/Jun Yi/Desktop/project_FDP_final/.Xil/Vivado-3116-DESKTOP-UA3OGHR} -force -include_local_ip_cache -include_config_settings

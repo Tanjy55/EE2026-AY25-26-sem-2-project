@@ -1,0 +1,149 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Fri Apr 10 19:16:52 2026
+| Host         : DESKTOP-UA3OGHR running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Top_Student_control_sets_placed.rpt
+| Design       : Top_Student
+| Device       : xc7a35t
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    78 |
+| Unused register locations in slices containing registers |   164 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            3 |
+|      4 |            2 |
+|      6 |            1 |
+|      8 |           17 |
+|     10 |            2 |
+|     12 |            2 |
+|     14 |            4 |
+|    16+ |           47 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             526 |          103 |
+| No           | No                    | Yes                    |             128 |           21 |
+| No           | Yes                   | No                     |             892 |          156 |
+| Yes          | No                    | No                     |             524 |           80 |
+| Yes          | No                    | Yes                    |             178 |           27 |
+| Yes          | Yes                   | No                     |             380 |           62 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+
+|             Clock Signal             |                            Enable Signal                           |                          Set/Reset Signal                          | Slice Load Count | Bel Load Count |
++--------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG                       |                                                                    | led[1]_i_1_n_0                                                     |                1 |              2 |
+|  clk_IBUF_BUFG                       |                                                                    | p_1_out[0]                                                         |                1 |              2 |
+|  clk_IBUF_BUFG                       |                                                                    | led[2]_i_1_n_0                                                     |                1 |              2 |
+|  JC_reg[3]_i_2_n_0                   |                                                                    |                                                                    |                1 |              4 |
+| ~clk6p25m_BUFG                       |                                                                    |                                                                    |                2 |              4 |
+|  clk_IBUF_BUFG                       | timer/s1                                                           | reset_flag_reg_n_0                                                 |                1 |              6 |
+|  clk_IBUF_BUFG                       | chen_wen_game/setmax_y                                             | chen_wen_game/rst                                                  |                2 |              8 |
+|  FSM_sequential_state_reg[3]_i_4_n_0 | dexter_game/simon/blink_count                                      | dexter_game/simon/tone_gen/counter_reg[31]_0                       |                1 |              8 |
+|  FSM_sequential_state_reg[3]_i_4_n_0 | dexter_game/simon/FSM_sequential_state[3]_i_2_n_0                  | dexter_game/simon/tone_gen/counter_reg[31]_0                       |                2 |              8 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/shift_frame                  | chen_wen_game/mouse/Inst_Ps2Interface/reset_bit_count              |                2 |              8 |
+|  clk_IBUF_BUFG                       | chen_wen_game/oled_data_A[15]_i_2_n_0                              | JXADC_OLED/oled_data_A_reg[4]                                      |                2 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | db5/begin_flag_reg                                                 |                2 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | clk_count[3]_i_1__0_n_0                                            |                1 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | chen_wen_game/mouse/Inst_Ps2Interface/data_inter0                  |                1 |              8 |
+|  clk_IBUF_BUFG                       | chen_wen_game/setmax_x                                             | chen_wen_game/rst                                                  |                2 |              8 |
+|  clk_IBUF_BUFG                       | timer/m0                                                           | reset_flag_reg_n_0                                                 |                2 |              8 |
+|  clk_IBUF_BUFG                       | hedley_game/p_x[3]_i_1_n_0                                         | reset_flag_reg_n_0                                                 |                2 |              8 |
+|  clk_IBUF_BUFG                       | timer/m1                                                           | reset_flag_reg_n_0                                                 |                1 |              8 |
+|  clk_IBUF_BUFG                       | timer/s0                                                           | reset_flag_reg_n_0                                                 |                1 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | JB_OLED/oled_data_reg[1]                                           |                4 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | JXADC_OLED/oled_data_reg[4]                                        |                3 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | chen_wen_game/mouse/Inst_Ps2Interface/clk_inter0                   |                1 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | JB_OLED/oled_data_reg[3]_0                                         |                3 |              8 |
+|  clk_IBUF_BUFG                       |                                                                    | JB_OLED/oled_data_reg[2]_0                                         |                5 |             10 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/left_down_reg                | chen_wen_game/rst                                                  |                2 |             10 |
+|  clk_IBUF_BUFG                       | chen_wen_game/init_count                                           |                                                                    |                2 |             12 |
+|  clk_IBUF_BUFG                       |                                                                    | JXADC_OLED/oled_data_reg[13]_0                                     |                6 |             12 |
+|  clk_IBUF_BUFG                       | chen_wen_game/final_answer1205_out                                 | chen_wen_game/for_wire1/SR[0]                                      |                4 |             14 |
+|  clk_IBUF_BUFG                       |                                                                    | jun_yi_game/logic/state0                                           |                3 |             14 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/delay_63clk_count[6]_i_2_n_0 | chen_wen_game/mouse/Inst_Ps2Interface/delay_63clk_count[6]_i_1_n_0 |                2 |             14 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/ps2_data_h_reg_inv_0         |                                                                    |                2 |             14 |
+|  clk_IBUF_BUFG                       | lvl1_id[1]_i_1_n_0                                                 |                                                                    |                3 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/final_answer1205_out                                 |                                                                    |                5 |             16 |
+|  clk_IBUF_BUFG                       | jun_yi_game/logic/E[0]                                             |                                                                    |                2 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/y_inc_reg[0][0]              | chen_wen_game/rst                                                  |                3 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/load_rx_data                 |                                                                    |                2 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/E[0]                         | chen_wen_game/rst                                                  |                3 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/tx_data[7]_i_1_n_0                             |                                                                    |                2 |             16 |
+|  clk_IBUF_BUFG                       | chen_wen_game/oled_data_A[15]_i_2_n_0                              | JXADC_OLED/oled_data_A_reg[14]                                     |                6 |             18 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/frame[9]_i_1_n_0             |                                                                    |                2 |             20 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/delay_20us_count[10]_i_2_n_0 | chen_wen_game/mouse/Inst_Ps2Interface/delay_20us_count[10]_i_1_n_0 |                3 |             22 |
+|  clk_IBUF_BUFG                       | chen_wen_game/selector_x                                           |                                                                    |                5 |             24 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/y_new_reg_n_0                                  |                                                                    |                4 |             24 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/x_new_reg_n_0                                  |                                                                    |                6 |             24 |
+|  clk_IBUF_BUFG                       |                                                                    | reset_flag_reg_n_0                                                 |                4 |             26 |
+|  clk_IBUF_BUFG                       | chen_wen_game/game_start_internal1                                 |                                                                    |                4 |             28 |
+|  clk_IBUF_BUFG                       | chen_wen_game/mouse/Inst_Ps2Interface/delay_100us_count[0]_i_2_n_0 | chen_wen_game/mouse/Inst_Ps2Interface/clear                        |                4 |             28 |
+|  clk_IBUF_BUFG                       | timer/audio_timer[14]_i_2_n_0                                      | timer/audio_timer[14]_i_1_n_0                                      |                5 |             30 |
+| ~clk6p25m_BUFG                       |                                                                    | JB_OLED/frame_counter[16]_i_1_n_0                                  |                5 |             34 |
+|  clk_IBUF_BUFG                       | timer/speaker_reg1__27                                             | timer/rumble_div[0]_i_1_n_0                                        |                5 |             36 |
+|  clk_IBUF_BUFG                       | jun_yi_game/logic/perm_id[2]_i_1_n_0                               |                                                                    |                8 |             38 |
+|  clk_IBUF_BUFG                       |                                                                    | db2/count[0]_i_1__2_n_0                                            |                5 |             40 |
+|  clk_IBUF_BUFG                       |                                                                    | db3/count[0]_i_1__1_n_0                                            |                5 |             40 |
+| ~clk6p25m_BUFG                       | JXADC_OLED/delay[0]_i_1__0_n_0                                     |                                                                    |                5 |             40 |
+| ~clk6p25m_BUFG                       | JB_OLED/delay[0]_i_1_n_0                                           |                                                                    |                5 |             40 |
+|  clk_IBUF_BUFG                       |                                                                    | db1/count[0]_i_1__3_n_0                                            |                5 |             40 |
+|  clk_IBUF_BUFG                       |                                                                    | db5/count[0]_i_1_n_0                                               |                5 |             40 |
+|  clk_IBUF_BUFG                       |                                                                    | db4/count[0]_i_1__0_n_0                                            |                5 |             40 |
+|  FSM_sequential_state_reg[3]_i_4_n_0 |                                                                    |                                                                    |               10 |             42 |
+| ~clk6p25m_BUFG                       |                                                                    | JXADC_OLED/frame_counter[16]_i_1__0_n_0                            |                6 |             42 |
+|  clk_IBUF_BUFG                       | hedley_game/lockout_timer[21]_i_1_n_0                              | reset_flag_reg_n_0                                                 |                5 |             44 |
+|  clk_IBUF_BUFG                       |                                                                    | chen_wen_game/mouse/reset_timeout_cnt_reg_n_0                      |                5 |             48 |
+|  clk_IBUF_BUFG                       |                                                                    | start_screen/clk2hz                                                |                7 |             50 |
+|  clk_IBUF_BUFG                       |                                                                    | led_flickering                                                     |                7 |             50 |
+|  clk_IBUF_BUFG                       |                                                                    | chen_wen_game/mouse/reset_periodic_check_cnt__0                    |                7 |             52 |
+|  clk_IBUF_BUFG                       | chen_wen_game/for_wire1/counter3                                   |                                                                    |                7 |             52 |
+|  clk_IBUF_BUFG                       | timer/blast_duration                                               | timer/blast_duration[0]_i_1_n_0                                    |                7 |             52 |
+|  clk_IBUF_BUFG                       |                                                                    | db4/counter_2                                                      |                7 |             52 |
+|  clk_IBUF_BUFG                       | timer/clk_div[0]_i_1_n_0                                           | reset_flag_reg_n_0                                                 |                7 |             54 |
+|  clk_IBUF_BUFG                       | jun_yi_game/logic/wrong_flag_i_1_n_0                               | jun_yi_game/logic/wrong_timer0                                     |                7 |             54 |
+|  FSM_sequential_state_reg[3]_i_4_n_0 | db2/counter_reg[31]                                                | dexter_game/simon/tone_gen/counter_reg[31]_0                       |                8 |             64 |
+| ~clk6p25m_BUFG                       | JB_OLED/state                                                      |                                                                    |                8 |             64 |
+| ~clk6p25m_BUFG                       | JXADC_OLED/state                                                   |                                                                    |                8 |             64 |
+|  FSM_sequential_state_reg[3]_i_4_n_0 |                                                                    | dexter_game/simon/tone_gen/counter_reg[31]_0                       |               16 |             70 |
+| ~clk6p25m_BUFG                       |                                                                    | JB_OLED/spi_word[39]_i_1_n_0                                       |               19 |             90 |
+| ~clk6p25m_BUFG                       |                                                                    | JXADC_OLED/spi_word[39]_i_1__0_n_0                                 |               19 |             90 |
+|  clk_IBUF_BUFG                       |                                                                    | chen_wen_game/rst                                                  |               18 |            118 |
+|  clk_IBUF_BUFG                       |                                                                    |                                                                    |               92 |            482 |
++--------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+
+
+
